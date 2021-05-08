@@ -17,6 +17,7 @@ local Library = {
         UIToggleKey = Enum.KeyCode.RightControl,
         TextFont = Enum.Font.SourceSansBold,
         EasingStyle = Enum.EasingStyle.Quad
+	RippleTweenTime = 1;
     },
     LibraryColorTable = {},
     TabCount = 0,
@@ -73,7 +74,7 @@ function RippleEffect(object)
         RippleEffect.ScaleType = Enum.ScaleType.Fit
 
         RippleEffect.Position = UDim2.new((Mouse.X - RippleEffect.AbsolutePosition.X) / object.AbsoluteSize.X, 0, (Mouse.Y - RippleEffect.AbsolutePosition.Y) / object.AbsoluteSize.Y, 0)
-        TweenService:Create(RippleEffect, TweenInfo.new(Library.Settings.RippleTweenTime, Library.Settings.TweenEasingStyle, Enum.EasingDirection.Out), {Position = UDim2.new(-5.5, 0, -5.5, 0), Size = UDim2.new(12, 0, 12, 0)}):Play()
+        TweenService:Create(RippleEffect, TweenInfo.new(Library.Theme.RippleTweenTime, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {Position = UDim2.new(-5.5, 0, -5.5, 0), Size = UDim2.new(12, 0, 12, 0)}):Play()
 
         wait(0.5)
         TweenService:Create(RippleEffect, TweenInfo.new(Library.Settings.MainTweenTime, Library.Settings.TweenEasingStyle, Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
