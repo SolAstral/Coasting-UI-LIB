@@ -17,8 +17,8 @@ local Library = {
         UIToggleKey = Enum.KeyCode.RightControl,
         TextFont = Enum.Font.SourceSansBold,
         EasingStyle = Enum.EasingStyle.Quad,
-	RippleTweenTime = 1,
-	MainTweenTime = 1
+	    RippleTweenTime = 1,
+	    MainTweenTime = 1
     },
     LibraryColorTable = {},
     TabCount = 0,
