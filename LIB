@@ -52,7 +52,7 @@ local function SetUIAccent(color)
     end
 end
 
-function RippleEffect(thing)
+function RippleEffect(object)
     spawn(function()
         local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
         local RippleHolder = Instance.new("Frame")
