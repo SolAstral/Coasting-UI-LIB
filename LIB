@@ -57,7 +57,7 @@ function RippleEffect(object)
         local RippleEffect = Instance.new("ImageLabel")
 
         RippleHolder.Name = "RippleHolder"
-        RippleHolder.Parent = button
+        RippleHolder.Parent = object
         RippleHolder.BackgroundTransparency = 1
         RippleHolder.BorderSizePixel = 0
         RippleHolder.ClipsDescendants = true
