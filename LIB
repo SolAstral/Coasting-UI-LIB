@@ -14,6 +14,7 @@ local Library = {
     Theme = {
         MainColor = Color3.fromRGB(107, 2, 235),
         BackgroundColor = Color3.fromRGB(35, 35, 35),
+	Border = Color3.fromRGB(0, 0, 0),
         UIToggleKey = Enum.KeyCode.RightControl,
         TextFont = Enum.Font.SourceSansBold,
         EasingStyle = Enum.EasingStyle.Quad
@@ -58,7 +59,9 @@ function RippleEffect(object)
 
         RippleHolder.Name = "RippleHolder"
         RippleHolder.Parent = object
+	RippleHolder.BackgroundColor3 = Library.Theme.MainColor
         RippleHolder.BackgroundTransparency = 1
+	RippleHolder.BorderColor3 = Library.Theme.Border
         RippleHolder.BorderSizePixel = 0
         RippleHolder.ClipsDescendants = true
         RippleHolder.Size = UDim2.new(1, 0,1, 0)
