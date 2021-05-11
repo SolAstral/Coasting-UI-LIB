@@ -85,6 +85,42 @@ function RippleEffect(object)
         RippleHolder:Destroy()
     end)
 end
+
+function RippleEffect2(object)
+    spawn(function()
+        local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+        local RippleHolder = Instance.new("Frame")
+        local RippleEffect = Instance.new("ImageLabel")
+
+        RippleHolder.Name = "RippleHolder"
+        RippleHolder.Parent = object
+	RippleHolder.BackgroundColor3 = Library.Theme.MainColor
+        RippleHolder.BackgroundTransparency = 1
+	RippleHolder.BorderColor3 = Library.Theme.Border
+        RippleHolder.BorderSizePixel = 0
+        RippleHolder.ClipsDescendants = true
+        RippleHolder.Size = UDim2.new(1, 0,1, 0)
+
+        RippleEffect.Name = "RippleEffect"
+        RippleEffect.Parent = RippleHolder
+        RippleEffect.BackgroundTransparency = 1
+        RippleEffect.BorderSizePixel = 0
+        RippleEffect.Image = "rbxassetid://2708891598"
+        RippleEffect.ImageColor3 = Color3.fromRGB(0,0,0)
+        RippleEffect.ImageTransparency = 0.8
+        RippleEffect.ScaleType = Enum.ScaleType.Fit
+
+        RippleEffect.Position = UDim2.new((Mouse.X - RippleEffect.AbsolutePosition.X) / object.AbsoluteSize.X, 0, (Mouse.Y - RippleEffect.AbsolutePosition.Y) / object.AbsoluteSize.Y, 0)
+        TweenService:Create(RippleEffect, TweenInfo.new(Library.Theme.RippleTweenTime, Library.Theme.EasingStyle, Enum.EasingDirection.Out), {Position = UDim2.new(-5.5, 0, -5.5, 0), Size = UDim2.new(12, 0, 12, 0)}):Play()
+
+        wait(0.5)
+        TweenService:Create(RippleEffect, TweenInfo.new(1, "Quad", Enum.EasingDirection.Out), {ImageTransparency = 1}):Play()
+
+        wait(1)
+        RippleHolder:Destroy()
+    end)
+end
+
 local function MakeDraggable(topbarobject, object)
     local Dragging = nil
     local DragInput = nil
